@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Zerith Studio – a next‑generation lightweight 3D modeling engine with hybrid tools, fast performance, and plugin architecture.">
+    <meta name="theme-color" content="#0E0E12">
+    <title>Zerith Studio</title>
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <a href="#main" class="skip-link">Skip to content</a>
+    <div id="gradient-bg"></div>
+    <!-- Hero -->
+    <nav id="main-nav" aria-label="Primary" role="navigation">
+        <div class="container">
+            <a href="#hero" class="nav-logo">Zerith</a>
+            <button id="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
+                <span></span><span></span><span></span>
+            </button>
+            <ul class="nav-links">
+                <li><a href="#features">Features</a></li>
+                <li><a href="#preview">Preview</a></li>
+                <li><a href="#performance">Performance</a></li>
+                <li><a href="#download">Download</a></li>
+            </ul>
+        </div>
+    </nav>
+    <main id="main">
+    <header id="hero">
+        <div class="container">
+            <h1 class="logo">Zerith Studio</h1>
+            <p class="headline">Precision Meets Creation.</p>
+            <p class="subheadline">A next-generation lightweight 3D modeling engine for creators.</p>
+            <div class="buttons">
+                <a href="#download" class="btn primary">Download Beta</a>
+                <a href="https://github.com/" class="btn secondary" target="_blank" rel="noopener">View on GitHub</a>
+            </div>
+            <a href="#features" class="scroll-down" aria-label="Scroll down">↓</a>
+        </div>
+    </header>
+
+    <!-- Features -->
+    <section id="features">
+        <div class="container">
+            <h2>Features</h2>
+            <div class="cards">
+                <div class="card">
+                    <div class="icon">🎛️</div>
+                    <h3>Hybrid Modeling</h3>
+                    <p>Parametric + Sculpt + Procedural</p>
+                </div>
+                <div class="card">
+                    <div class="icon">⚡</div>
+                    <h3>Lightweight Performance</h3>
+                    <p>Fast and efficient workflow</p>
+                </div>
+                <div class="card">
+                    <div class="icon">📁</div>
+                    <h3>Custom .zrs Format</h3>
+                    <p>Optimized scene storage</p>
+                </div>
+                <div class="card">
+                    <div class="icon">🔌</div>
+                    <h3>Modular Plugins</h3>
+                    <p>Extendable architecture</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Preview -->
+    <section id="preview">
+        <div class="container">
+            <h2>Preview</h2>
+                   <p>Real-time viewport, GPU acceleration, clean modern interface make Zerith Studio a joy for creators.</p>
+        </div>
+    </section>
+
+    <!-- Performance -->
+    <section id="performance">
+        <div class="container">
+            <h2>Performance</h2>
+            <div class="stats">
+                <div class="stat">
+                    <span class="number" data-target="3">0</span>
+                    <p>Startup (s)</p>
+                </div>
+                <div class="stat">
+                    <span class="number" data-target="200">0</span>
+                    <p>RAM (MB)</p>
+                </div>
+                <div class="stat">
+                    <span class="number" data-target="99">0</span>
+                    <p>GPU Accelerated (%)</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Download -->
+    <section id="download">
+        <div class="container">
+            <div class="cta-box">
+                <h2>Download Zerith Studio</h2>
+                <p class="cta-subtitle">Available for Windows 10/11</p>
+                <svg width="48" height="48" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="windows-icon">
+                    <path d="M3 3h8v8H3V3m10 0h8v8h-8V3M3 13h8v8H3v-8m10 0h8v8h-8v-8" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/>
+                </svg>
+                <a href="D:\Zerith Studio Website\ZerithStudio-Setup-0.1.0.exe" class="btn primary large" id="download-button">Download Now</a>
+                <p id="download-counter">Downloaded <span id="download-count">0</span> times</p>
+                <p class="requirements">System Requirements: Windows 10/11, 4GB RAM, GPU with 2GB VRAM</p>
+            </div>
+        </div>
+    </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <a href="https://github.com/" target="_blank" rel="noopener">GitHub</a>
+            <a href="mailto:studiozerith@gmail.com">studiozerith@gmail.com</a>
+            <p>&copy; 2026 Zerith Studio</p>
+        </div>
+    </footer>
+
+    <button id="to-top" aria-label="Back to top">↑</button>
+
+    <script src="script.js"></script>
+</body>
+</html>

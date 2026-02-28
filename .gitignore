@@ -1,0 +1,19 @@
+# Node modules
+node_modules/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# VS Code settings
+.vscode/
+
+# Logs
+logs
+*.log
+
+# Build outputs
+/dist
+
+# generated
+*.bundle.js
