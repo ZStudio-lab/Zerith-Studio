@@ -1,48 +1,46 @@
-# CountAPI Setup for Download Counter
+# CounterAPI Setup
 
-This project now uses [CountAPI](https://countapi.xyz/) to track the number of downloads globally. No backend, login, or third-party analytics service is required — everything works from a static GitHub Pages site.
+Your provided token (`ut_TlebEqG5Q0ZHdwTssRvTRy9cV0jR6nnlrEJP9h8K`) from https://app.counterapi.dev lets the static page store a global count without any external login.
 
-## Steps to configure
+## Steps
 
-1. **Choose namespace and key**
-   - The default values in `script.js` are:
+1. **Verify token and namespace**
+   - The token appears to belong to your "zerith-studios-team" on CounterAPI.
+   - In `script.js`, the constants are already set:
      ```js
-     const COUNT_NAMESPACE = 'zerithstudio';
-     const COUNT_KEY = 'downloads';
+     const COUNTER_API_BASE = 'https://api.counterapi.dev';
+     const COUNTER_API_TOKEN = 'ut_TlebEqG5Q0ZHdwTssRvTRy9cV0jR6nnlrEJP9h8K';
+     const COUNTER_NAMESPACE = 'downloads';
      ```
-   - You can keep these or change them to something unique (e.g. your username or project name).
-   - The combination of namespace/key identifies the counter; if it doesn't exist, CountAPI creates it automatically on the first hit.
+   - If you wish to use a different namespace/key, adjust `COUNTER_NAMESPACE` accordingly; the token authenticates the request.
 
-2. **Set allowed hostnames**
-   - In `script.js` update the `ALLOWED_HOSTS` array with the domains that are permitted to increment the counter. Example:
+2. **Customize allowed hosts**
+   - Make sure the `ALLOWED_HOSTS` array in `script.js` includes your Pages URL:
      ```js
      const ALLOWED_HOSTS = [
-       'your-username.github.io',      // GitHub Pages default
-       'www.your-custom-domain.com'     // optional custom domain
+       'zstudio-lab.github.io',
+       'zstudio-lab.github.io/Zerith-Studio'
      ];
      ```
-   - This prevents other websites from abusing your counter by making cross‑origin requests.
-   - Note: this is a client‑side check; it deters casual misuse but cannot fully stop a motivated attacker.
+   - This reduces abuse but is optional.
 
 3. **Deploy to GitHub Pages**
-   - Commit and push all changes including `script.js` updates.
-   - In your repository settings, enable GitHub Pages (e.g. `main` branch, `/` root).
-   - After a few minutes, your site will be live at `https://your-username.github.io/your-repo/` (or your custom domain).
+   - Commit & push the modified `script.js` and `index.html`.
+   - Enable Pages in repo settings if not already done.
 
-4. **Verify counter**
-   - Visit the site and click the **Download Now** button; you should see the number increment.
-   - Refresh the page to confirm the current value loads correctly.
+4. **Test the counter**
+   - Open your site at `https://zstudio-lab.github.io/Zerith-Studio/`.
+   - The number beneath the download button should reflect the current count stored by CounterAPI.
+   - Clicking the button will hit the API and increment the value; the page updates automatically.
 
-5. **(Optional) Customizing appearance**
-   - You can style the counter text in `styles.css` under `#download-counter`.
-
-6. **No login needed**
-   - CountAPI doesn't require an account for basic counters.
-   - If you ever need to reset or manage the counter, you can visit:
-     `https://api.countapi.xyz/set/{namespace}/{key}?value=0`
-     replacing `{namespace}` and `{key}` with your values.
-   - For more advanced options, refer to the CountAPI docs.
+5. **Managing your count**
+   - If you need to reset or inspect via the CounterAPI dashboard, use the URL you mentioned:
+     `https://app.counterapi.dev/team/zerith-studios-team/user-tokens`
+   - You can also manually set the counter via the API:
+     ```
+     https://api.counterapi.dev/ut_TlebEqG5Q0ZHdwTssRvTRy9cV0jR6nnlrEJP9h8K/set/downloads?value=0
+     ```
 
 ---
 
-Your app is now fully self-contained and will track downloads consistently for all users on GitHub Pages with minimal overhead.
+This solution keeps the counter within a service that's accessible in your region and requires no server code besides what runs in the visitor’s browser. The token is needed to prevent unauthorized writes.

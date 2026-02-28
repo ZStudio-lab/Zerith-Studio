@@ -59,14 +59,14 @@ navLinks.forEach(link => {
   });
 });
 
-// download button click counter (CountAPI)
+// download counter via CounterAPI
 const downloadButton = document.getElementById('download-button');
 const countDisplay = document.getElementById('download-count');
 
 // Allowed hostnames (update to your GitHub Pages domain or custom domain)
 const ALLOWED_HOSTS = [
-  'your-username.github.io',
-  'www.your-custom-domain.com'
+  'zstudio-lab.github.io',
+  'zstudio-lab.github.io/Zerith-Studio'
 ];
 
 function isAllowedOrigin() {
@@ -82,40 +82,46 @@ function isAllowedOrigin() {
   return false;
 }
 
-// CountAPI settings — no signup required. Change namespace/key if desired.
-const COUNT_NAMESPACE = 'zerithstudio';
-const COUNT_KEY = 'downloads';
+// CounterAPI configuration
+const COUNTER_API_BASE = 'https://api.counterapi.dev';
+const COUNTER_API_TOKEN = 'ut_TlebEqG5Q0ZHdwTssRvTRy9cV0jR6nnlrEJP9h8K';
+const COUNTER_NAMESPACE = 'downloads';
 
-// Fetch current count
+// helper to build URL
+function counterUrl(action) {
+  // action may be 'get' or 'hit'
+  return `${COUNTER_API_BASE}/${COUNTER_API_TOKEN}/${action}/${COUNTER_NAMESPACE}`;
+}
+
+// fetch current count
 async function fetchDownloadCount() {
   try {
-    const res = await fetch(`https://api.countapi.xyz/get/${COUNT_NAMESPACE}/${COUNT_KEY}`);
+    const res = await fetch(counterUrl('get'));
     const data = await res.json();
     if (data && typeof data.value !== 'undefined' && countDisplay) {
       countDisplay.textContent = data.value;
     }
   } catch (error) {
-    console.error('Error fetching download count:', error);
+    console.error('Error fetching counter:', error);
   }
 }
 
-// Increment count
+// increment count
 async function incrementDownloadCount() {
   try {
-    const res = await fetch(`https://api.countapi.xyz/hit/${COUNT_NAMESPACE}/${COUNT_KEY}`);
+    const res = await fetch(counterUrl('hit'));
     const data = await res.json();
     if (data && typeof data.value !== 'undefined' && countDisplay) {
       countDisplay.textContent = data.value;
     }
   } catch (error) {
-    console.error('Error incrementing download count:', error);
+    console.error('Error incrementing counter:', error);
   }
 }
 
-// Initialize count on page load
+// initialize
 fetchDownloadCount();
 
-// Increment on button click (only when origin check passes)
 if (downloadButton) {
   downloadButton.addEventListener('click', (e) => {
     if (!isAllowedOrigin()) {
